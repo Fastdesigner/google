@@ -1,0 +1,20 @@
+{
+  "name": "google",
+  "endpoint": "https://mybusiness.googleapis.com/v4",
+  "auth_url": "https://accounts.google.com/o/oauth2/v2/auth",
+  "token_url": "https://oauth2.googleapis.com/token",
+  "default_scopes": [
+    "https://www.googleapis.com/auth/business.manage"
+  ],
+  "send_scope": 1,
+  "use_pkce": true,
+  "authorize_params": {
+    "access_type": "offline",
+    "prompt": "consent",
+    "include_granted_scopes": "true"
+  },
+  "features": {
+    "supports_refresh": true
+  },
+  "refresh_needs_redirect": false
+}

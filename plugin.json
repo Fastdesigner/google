@@ -1,0 +1,19 @@
+{
+  "id": "google",
+  "name": "Google",
+  "type": "dependency",
+  "system": false,
+  "description": "Google OAuth provider metadata and API helpers for fiCMS plugins.",
+  "version": "1.0.0",
+  "dependencies": {
+    "oauth": {
+      "type": "system",
+      "required": true
+    }
+  },
+  "autoload": {
+    "psr4": {
+      "google\\": "src/"
+    }
+  }
+}
