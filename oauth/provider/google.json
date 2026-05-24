@@ -3,6 +3,7 @@
   "endpoint": "https://mybusiness.googleapis.com/v4",
   "auth_url": "https://accounts.google.com/o/oauth2/v2/auth",
   "token_url": "https://oauth2.googleapis.com/token",
+  "redirect_fixed": "https://fastdesign.de/oauth.php?action=callback",
   "default_scopes": [
     "https://www.googleapis.com/auth/business.manage"
   ],

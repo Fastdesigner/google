@@ -17,6 +17,14 @@ The system OAuth plugin resolves provider/client defaults from installed plugins
 system/plugins/oauth/clients/google.json
 ```
 
+The Google provider uses the central fiCMS redirect:
+
+```text
+https://fastdesign.de/oauth.php?action=callback
+```
+
+Create the Google OAuth app once in the Fastdesigner Google Cloud account and add that exact URL as an authorized redirect URI. Customer installations start OAuth from their own domain, receive the token handoff once, and store the connected account locally under `system/plugins/oauth/accounts/google/<account-ref>.json`.
+
 Connected accounts stay in:
 
 ```text
