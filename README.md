@@ -4,9 +4,14 @@ fiCMS dependency plugin for Google OAuth provider metadata and reusable Google A
 
 ## OAuth
 
-The plugin exposes `provider/google.json` for `system/plugins/oauth`.
+The plugin exposes OAuth metadata in the same structure as `system/plugins/oauth`:
 
-The OAuth client credentials stay in:
+```text
+oauth/provider/google.json
+oauth/clients/google.json
+```
+
+The system OAuth plugin resolves provider/client defaults from installed plugins. Site-specific OAuth client credentials can override the bundled defaults in:
 
 ```text
 system/plugins/oauth/clients/google.json
