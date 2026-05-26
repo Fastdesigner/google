@@ -18,7 +18,7 @@ class Google {
 		$this->last = ['result'=>false,'code'=>0,'body'=>[],'error'=>''];
 		$auth = \oauth\OAuth::get_request('google',$this->accountRef);
 		if (!$auth) {
-			$this->last['error'] = 'oauth_unavailable';
+			$this->last['error'] = \oauth\OAuth::last_error() != '' ? \oauth\OAuth::last_error() : 'oauth_unavailable';
 			return false;
 		}
 		if (!empty($query)) $url .= (strpos($url,'?') === false ? '?' : '&').http_build_query($query);

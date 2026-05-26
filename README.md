@@ -44,3 +44,5 @@ The class uses the official Google Business Profile APIs:
 - Account Management API for accounts.
 - Business Information API for locations.
 - Google My Business API v4 for reviews.
+
+If OAuth cannot provide a usable request, the Google helper forwards `OAuth::last_error()` through `Google::last()['error']` instead of hiding it behind a generic unavailable state.
