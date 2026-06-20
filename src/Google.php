@@ -14,7 +14,7 @@ class Google {
 		return $this->last;
 	}
 
-	protected function request($url, $query = [], $method = 'GET', $payload = []) {
+	protected function request($url, $query = [], $method = 'GET', $payload = [], $headers = []) {
 		$this->last = ['result'=>false,'code'=>0,'body'=>[],'error'=>''];
 		$auth = \oauth\OAuth::get_request('google',$this->accountRef);
 		if (!$auth) {
@@ -22,7 +22,7 @@ class Google {
 			return false;
 		}
 		if (!empty($query)) $url .= (strpos($url,'?') === false ? '?' : '&').http_build_query($query);
-		$result = \curl__request($url,$auth['headers'],$payload,'','','',$method);
+		$result = \curl__request($url,array_merge($auth['headers'],is_array($headers) ? $headers : []),$payload,'','','',$method);
 		if ($result === false) {
 			$this->last['error'] = 'request_failed';
 			return false;

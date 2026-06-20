@@ -21,13 +21,15 @@ class BusinessProfile extends Google {
 		return $this->request($this->businessInformation.'/'.$accountName.'/locations',$query);
 	}
 
-	public function reviews($accountName, $locationName, $pageSize = 50, $pageToken = '', $orderBy = 'updateTime desc') {
+	public function reviews($accountName, $locationName, $pageSize = 50, $pageToken = '', $orderBy = 'updateTime desc', $acceptLanguage = '') {
 		$parent = $this->reviewParent($accountName,$locationName);
 		if ($parent == '') return false;
 		$query = ['pageSize'=>max(1,min(50,intval($pageSize)))];
 		if (trim((string) $pageToken) !== '') $query['pageToken'] = trim((string) $pageToken);
 		if (trim((string) $orderBy) !== '') $query['orderBy'] = trim((string) $orderBy);
-		return $this->request($this->businessProfile.'/'.$parent.'/reviews',$query);
+		$headers = [];
+		if (trim((string) $acceptLanguage) !== '') $headers[] = 'Accept-Language: '.trim((string) $acceptLanguage);
+		return $this->request($this->businessProfile.'/'.$parent.'/reviews',$query,'GET',[],$headers);
 	}
 
 	protected function accountName($accountName) {
