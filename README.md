@@ -46,3 +46,20 @@ The class uses the official Google Business Profile APIs:
 - Google My Business API v4 for reviews.
 
 If OAuth cannot provide a usable request, the Google helper forwards `OAuth::last_error()` through `Google::last()['error']` instead of hiding it behind a generic unavailable state.
+
+## Scopes
+
+```php
+$scopes = \google\Scopes::searchConsole();
+```
+
+Consumers request feature-specific scopes themselves through the shared OAuth flow. The Google dependency plugin does not add Search Console to the provider defaults.
+
+## Search Console
+
+```php
+$console = new \google\SearchConsole('default');
+$rows = $console->queryPages('sc-domain:example.com','Hotel Sylt','2026-03-24','2026-06-21');
+```
+
+Search Console access requires `https://www.googleapis.com/auth/webmasters.readonly` and Search Console property permission for the connected Google account.
