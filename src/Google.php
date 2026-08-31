@@ -22,7 +22,7 @@ class Google {
 			return false;
 		}
 		if (!empty($query)) $url .= (strpos($url,'?') === false ? '?' : '&').http_build_query($query);
-		$result = \curl__request($url,array_merge($auth['headers'],is_array($headers) ? $headers : []),$payload,'','','',$method);
+		$result = \ficms\Http::request($url,['headers'=>array_merge($auth['headers'],is_array($headers) ? $headers : []),'payload'=>$payload,'method'=>$method]);
 		if ($result === false) {
 			$this->last['error'] = 'request_failed';
 			return false;

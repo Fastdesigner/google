@@ -5,6 +5,9 @@
   "system": false,
   "description": "Google OAuth provider metadata and API helpers for fiCMS plugins.",
   "version": "1.0.0",
+  "requires": [
+    "ficms\\Http::request"
+  ],
   "dependencies": {
     "oauth": {
       "type": "system",
